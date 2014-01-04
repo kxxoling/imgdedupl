@@ -67,4 +67,4 @@ if __name__ == '__main__':
             else:
                 exit()
         else:
-            print "can't find any similar image here!"
+            print "Can't find any similar image here!"
