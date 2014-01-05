@@ -85,7 +85,8 @@ def is_image(f):
 def get_all_images(path):
     images = []
     dirs = [path]
-    dirs.extend(os.path.join(path, dirctory) for dirctory in filter(os.path.isdir, os.listdir(path)))
-    for dirctory in dirs:
-        images.extend(filter(is_image, [os.path.join(dirctory, item) for item in os.listdir(dirctory)]))
+    for directory in dirs:
+        images.extend(filter(is_image, [os.path.join(p, f)
+                                        for p, _, files in os.walk(directory)
+                                        for f in files]))
     return images
